@@ -113,8 +113,10 @@ img {
   transform-origin: right;
   width: 100%;
   height: 4px;
+  bottom: -1px;
+  border-radius: 2px;
   background-color: #404bbf;
-  transition: transform 250ms linear;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .site-nav-item:hover::after,
@@ -199,6 +201,7 @@ img {
   margin-left: auto;
   margin-right: auto;
   border: none;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-hero:hover,
@@ -550,9 +553,10 @@ img {
   padding: 12px 24px;
   border-radius: 4px;
   border: 1px solid var(--portfolio-btn-color);
-  transition-property: background, color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-navigation:hover,
@@ -590,6 +594,7 @@ img {
 
 .portfolio-link {
   display: block;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-item-block {
@@ -616,6 +621,7 @@ img {
 .portfolio-link:focus {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+  transform: translateY(0%);
 }
 
 .portfolio-title {
@@ -644,7 +650,7 @@ img {
 .overlay {
   position: absolute;
   top: 0;
-  padding: 40px;
+  padding: 40px 32px;
   width: 100%;
   height: 100%;
   background-color: #4d5ae5;
@@ -654,7 +660,7 @@ img {
   letter-spacing: 0.02em;
   color: #f4f4fd;
   transform: translateY(100%);
-  transition: transform 250ms linear;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop {
@@ -663,7 +669,8 @@ img {
   height: 100%;
   background-color: rgba(46, 47, 66, 0.4);
   top: 0;
-  transition: opacity 300ms linear, visibility 300ms linear;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal {
@@ -671,7 +678,7 @@ img {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
-  transition: transform 300ms linear;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   width: 408px;
   min-height: 584px;
   background-color: #fcfcfc;
@@ -685,26 +692,36 @@ img {
 }
 
 .is-hidden {
-  visibility: none;
+  visibility: hidden;
   opacity: 0;
   pointer-events: none;
 }
 
 .modal-close {
-  width: 24px;
-  height: 24px;
+  position: absolute;
+  top: 24px;
+  right: 24px;
   background: #e7e9fc;
   border-radius: 50%;
-  border: 1px solid #999999;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-left: auto;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-close:hover,
 .modal-close:focus {
   background: #404bbf;
   border-radius: 50%;
+  border: none;
   fill: #ffffff;
+}
+
+.modal-close-icon {
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
